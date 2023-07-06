@@ -16,18 +16,42 @@ body {
   top: 40px;
 }
 
+.score {
+  text-align: right;
+  font-size: 25px;
+  color: darkgreen;
+  position: relative;
+  top: 115px;
+  right: 15px;
+}
+
 .timer {
-  text-align: center;
+  text-align: left;
   font-size: 25px;
   color: darkorange;
   position: relative;
-  top: 77px;
+  top: 86px;
+  left: 15px;
 }
 
 .instructions {
   text-align: center;
   position: relative;
-  top: 20px;
+  top: -10px;
+}
+
+#playerInput {
+  text-align: center;
+  position: relative;
+  left: 765px;
+  top: 30px;
+}
+
+button {
+  width: 80px;
+  position: relative;
+  left: 540px;
+  top: 30px;
 }
 
 .container {
@@ -43,6 +67,7 @@ body {
   border-style: solid;
   border-width: 0.5px;
   text-align: center;
-  height: 100px;
+  height: 80px;
   position: relative;
+  padding: 30px;
 }

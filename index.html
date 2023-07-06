@@ -14,8 +14,11 @@
   </head>
   <body>
     <div class="game-title">TYPING FRENZY</div>
+    <div class="score">Score: <span id="score-number">0</span></div>
     <div class="timer">Timer: 60s</div>
-    <div class="instructions"><em>Type out all 16 words before the time runs out!</em></div>
+    <div class="instructions">
+      <em>Type out all 16 words before the timer runs out!</em>
+    </div>
     <div class="container">
       <div class="element element-1">element 1</div>
       <div class="element element-2">element 2</div>
@@ -33,6 +36,14 @@
       <div class="element element-14">element 14</div>
       <div class="element element-15">element 15</div>
       <div class="element element-16">element 16</div>
+
+      <input
+        type="text"
+        id="playerInput"
+        placeholder="Input text here"
+        style="width: 200px"
+      />
+      <button type="button" onclick="checkPlayerInput()">Submit</button>
     </div>
     <script src="script.js"></script>
   </body>
