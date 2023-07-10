@@ -41,17 +41,13 @@ body {
 }
 
 #playerInput {
+  margin: auto;
   text-align: center;
-  position: relative;
-  left: 765px;
-  top: 30px;
 }
 
-button {
-  width: 80px;
-  position: relative;
-  left: 540px;
-  top: 30px;
+#start-button {
+  width: 100px;
+  margin: auto;
 }
 
 .container {
