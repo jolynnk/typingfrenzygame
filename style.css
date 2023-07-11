@@ -5,49 +5,105 @@
 body {
   margin: 0;
   font-family: Helvetica;
+  background: rgb(253, 234, 201);
+  background: rgb(29, 29, 29);
 }
 
-.game-title {
-  font-family: Caprasimo;
-  text-align: center;
-  font-size: 40px;
-  color: purple;
-  position: relative;
-  top: 40px;
+#game-title {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: fixed;
+  top: 10px;
+  left: 580px;
+  width: 250px;
+}
+
+#keyboard {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: fixed;
+  bottom: -100px;
+  left: 375px;
+  width: 640px;
 }
 
 .score {
-  text-align: right;
+  text-align: center;
   font-size: 25px;
-  color: darkgreen;
-  position: relative;
-  top: 115px;
-  right: 15px;
+  color: rgb(146, 62, 223);
+  position: fixed;
+  top: 215px;
+  right: 287px;
+}
+
+#score-number {
+  font-size: 85px;
 }
 
 .timer {
-  text-align: left;
+  text-align: center;
   font-size: 25px;
-  color: darkorange;
-  position: relative;
-  top: 86px;
-  left: 15px;
+  color: rgb(207, 83, 122);
+  position: fixed;
+  left: 230px;
+  top: 215px;
+}
+
+#timer-number {
+  font-size: 85px;
 }
 
 .instructions {
   text-align: center;
-  position: relative;
-  top: -10px;
+  position: fixed;
+  top: 130px;
+  left: 553px;
+  font-family: Agdasima;
+  color: rgb(126, 234, 251);
+  font-size: 20px;
 }
 
 #playerInput {
-  margin: auto;
+  position: fixed;
+  top: 430px;
+  left: 595px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
+  padding: 10px;
 }
 
 #start-button {
-  width: 100px;
-  margin: auto;
+  position: fixed;
+  top: 485px;
+  left: 656px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3px;
+}
+
+#round2-button {
+  position: fixed;
+  top: 485px;
+  left: 647px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3px;
+}
+
+#round3-button {
+  position: fixed;
+  top: 485px;
+  left: 647px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3px;
 }
 
 .container {
@@ -55,15 +111,21 @@ body {
   grid-template-columns: 2fr 2fr 2fr 2fr;
   grid-template-rows: 2fr 2fr 2fr 2fr;
   justify-content: center;
-  position: relative;
-  top: 80px;
+  position: fixed;
+  top: 170px;
+  left: 370px;
+  margin: auto;
+  width: 45%;
 }
 
 .element {
   border-style: solid;
   border-width: 0.5px;
+  font-family: Agdasima;
+  font-size: 22px;
+  color: white;
   text-align: center;
-  height: 80px;
+  height: 60px;
   position: relative;
-  padding: 30px;
+  padding: 20px;
 }

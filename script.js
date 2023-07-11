@@ -15,7 +15,7 @@ round3Button.style.display = "none";
 const listOfWords = [
   "jumbled",
   // "simplistic",
-  "spill",
+  // "spill",
   // "concerned",
   // "reason",
   // "halting",
@@ -90,6 +90,9 @@ const listOfEquations = [
   "8 * 8",
   "10 * 10",
   "68 - 30",
+  "3 + 7",
+  "12 - 4",
+  "30 / 10",
 ];
 
 //pick out random equation from list of equations
@@ -152,7 +155,7 @@ function checkWord() {
   for (const displayedWord of elementArray) {
     if (playerInput.value === displayedWord.innerText) {
       displayedWord.innerText = "";
-      currentScore++;
+      currentScore += 3;
       score.innerText = currentScore;
     }
   }
@@ -164,7 +167,7 @@ function checkNumber() {
     if (playerInput.value == eval(displayedEqn.innerText)) {
       //eval converts string to number and resolves equation
       displayedEqn.innerText = "";
-      currentScore++;
+      currentScore += 3;
       score.innerText = currentScore;
     }
   }
@@ -175,28 +178,36 @@ function checkColor() {
   for (const displayedColor of elementArray) {
     if (playerInput.value == displayedColor.style.color) {
       displayedColor.innerText = "";
-      currentScore++;
+      currentScore += 3;
       score.innerText = currentScore;
     }
   }
 }
+// console.log(elementArray[0].innerText);
 
 //check if all elements are typed
 function checkAllTyped() {
-  if(elementArray.every() === "")
-  // for (const checkElements of elementArray) {
-  //   console.log(checkElements.innerText);
-  //   if (checkElements.innerText == "") {
-  //     round2Button.style.display = "block";
-  //     if (round === 1 && checkElements.innerText == "") {
-  //       round2Button.style.display = "block";
-  //     } else if (round === 2 && checkElements.innerText == "") {
-  //       round3Button.style.display = "block";
-  //       round2Button.style.display = "none";
-  //     }
-  //   }
-  // }
+  elArr = [];
+  for (const el of elementArray) {
+    elArr.push(el.innerText); //puts all elements into proper array (was considered node list before)
+  }
+
+  //to check if element box is empty. no need ".innertext" as checking array element directly
+  function checkEl(x) {
+    return x == "";
+  }
+
+  //put above function into "every" iterator to check that EVERY element box is empty
+  if (elArr.every(checkEl) && round === 1) {
+    round2Button.style.display = "block";
+    // startButton.style.display = "none";
+  } else if (elArr.every(checkEl) && round === 2) {
+    round2Button.style.display = "none";
+    round3Button.style.display = "block";
+  }
 }
+
+// console.log(elementArray.every(checkAllTyped));
 
 //to accept player input when enter button pressed. source: https://blog.devgenius.io/how-to-detect-the-pressing-of-the-enter-key-in-a-text-input-field-with-javascript-380fb2be2b9e
 playerInput.addEventListener("keypress", function (e) {
@@ -206,7 +217,7 @@ playerInput.addEventListener("keypress", function (e) {
       checkAllTyped();
     } else if (round === 2) {
       checkNumber();
-      // checkAllTyped();
+      checkAllTyped();
     } else if (round === 3) {
       checkColor();
     }
@@ -219,16 +230,16 @@ let timerNumber = document.getElementById("timer-number");
 const timer = document.querySelector("timer");
 
 //create 30s countdown timer
-let timeLeft = 60;
+let timeLeft = 90;
 const timerText = document.getElementById("timer-fulltext");
 
 function countdown() {
   const timerId = setTimeout(countdown, 1000);
   timerNumber.innerText = timeLeft;
-  if (timeLeft > 0 && timeLeft < 61) {
+  if (timeLeft > 0 && timeLeft < 91) {
     timeLeft--;
   } else if (timeLeft === 0) {
-    timerText.innerText = "TIME'S UP!";
+    // timerText.innerText = "TIME'S UP!";
     timerText.style.color = "red";
     playerInput.style.display = "none";
     startButton.style.display = "none";
@@ -243,20 +254,23 @@ startButton.addEventListener("click", function () {
   countdown();
 });
 
+//start round 2 when button clicked
 round2Button.addEventListener("click", function () {
   round = 2;
   round2();
-  countdown();
 });
 
+//start round 3 when button clicked
 round3Button.addEventListener("click", function () {
   round = 3;
   round3();
-  countdown();
+  startButton.style.display = "none";
+  round2Button.style.display = "none";
+  round3Button.style.display = "none";
 });
+
 //congrats word when finished game
 //do random equations and source for answer when answer is typed, not to calculate everything in advance
 //aesthetics - background, font type etc
-//insert unique word into boxes. either this or destroy only 1 of the items when typed
 //game over if not all words typed
 //source words from word generator. https://www.section.io/engineering-education/how-to-build-a-speedtyping-game-using-javascript/
