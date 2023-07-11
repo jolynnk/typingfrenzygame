@@ -15,7 +15,7 @@ round3Button.style.display = "none";
 const listOfWords = [
   "jumbled",
   // "simplistic",
-  // "spill",
+  "spill",
   // "concerned",
   // "reason",
   // "halting",
@@ -59,9 +59,13 @@ const listOfWords = [
   // "reflect",
 ];
 
-//pick out a random word from the list of words
+//pick out a random and unique word from the list of words
 function getRandomWord() {
-  return listOfWords[Math.floor(Math.random() * listOfWords.length)];
+  const randomWord =
+    listOfWords[Math.floor(Math.random() * listOfWords.length)];
+  const randomWordIdx = listOfWords.indexOf(randomWord);
+  listOfWords.splice(randomWordIdx, 1); //removes the word that has been picked out from the array so that it won't repeat
+  return randomWord;
 }
 
 //populate boxes with random word
@@ -74,23 +78,27 @@ function round1() {
 //ROUND 2
 const listOfEquations = [
   "5 * 7",
-  // "40 / 8",
-  // "37 * 2",
-  // "1 + 2",
-  // "3 + 8",
-  // "4 + 5",
-  // "2 * 6",
-  // "14 * 3",
-  // "20 / 2",
-  // "7 * 7",
-  // "8 * 8",
-  // "10 * 10",
-  // "68 - 30",
+  "40 / 8",
+  "37 * 2",
+  "1 + 2",
+  "3 + 8",
+  "4 + 5",
+  "2 * 6",
+  "14 * 3",
+  "20 / 2",
+  "7 * 7",
+  "8 * 8",
+  "10 * 10",
+  "68 - 30",
 ];
 
 //pick out random equation from list of equations
 function getRandomEquation() {
-  return listOfEquations[Math.floor(Math.random() * listOfEquations.length)];
+  const randomEqn =
+    listOfEquations[Math.floor(Math.random() * listOfEquations.length)];
+  const randomEqnIdx = listOfEquations.indexOf(randomEqn);
+  listOfEquations.splice(randomEqnIdx, 1); //removes the equation that has been picked out from the array so that it won't repeat
+  return randomEqn;
 }
 
 //populate boxes with random equations
@@ -112,10 +120,20 @@ const colors = [
   "black",
   "green",
   "grey",
+  "purple",
+  "gold",
+  "silver",
+  "darkblue",
+  "darkgreen",
+  "darkred",
+  "darkorange",
 ];
 
 function getRandomColor() {
-  return colors[Math.floor(Math.random() * colors.length)];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  const randomColorIdx = colors.indexOf(randomColor);
+  colors.splice(randomColorIdx, 1); //removes the colour that has been picked out from the array so that it won't repeat
+  return randomColor;
 }
 
 function round3() {
@@ -165,15 +183,19 @@ function checkColor() {
 
 //check if all elements are typed
 function checkAllTyped() {
-  for (const checkElements of elementArray) {
-    console.log(checkElements.innerText);
-    if (round === 1 && checkElements.innerText == "") {
-      round2Button.style.display = "block";
-    } else if (round === 2 && checkElements.innerText == "") {
-      round3Button.style.display = "block";
-      round2Button.style.display = "none";
-    }
-  }
+  if(elementArray.every() === "")
+  // for (const checkElements of elementArray) {
+  //   console.log(checkElements.innerText);
+  //   if (checkElements.innerText == "") {
+  //     round2Button.style.display = "block";
+  //     if (round === 1 && checkElements.innerText == "") {
+  //       round2Button.style.display = "block";
+  //     } else if (round === 2 && checkElements.innerText == "") {
+  //       round3Button.style.display = "block";
+  //       round2Button.style.display = "none";
+  //     }
+  //   }
+  // }
 }
 
 //to accept player input when enter button pressed. source: https://blog.devgenius.io/how-to-detect-the-pressing-of-the-enter-key-in-a-text-input-field-with-javascript-380fb2be2b9e
@@ -184,7 +206,7 @@ playerInput.addEventListener("keypress", function (e) {
       checkAllTyped();
     } else if (round === 2) {
       checkNumber();
-      checkAllTyped();
+      // checkAllTyped();
     } else if (round === 3) {
       checkColor();
     }
@@ -197,7 +219,7 @@ let timerNumber = document.getElementById("timer-number");
 const timer = document.querySelector("timer");
 
 //create 30s countdown timer
-let timeLeft = 10;
+let timeLeft = 60;
 const timerText = document.getElementById("timer-fulltext");
 
 function countdown() {
@@ -232,7 +254,6 @@ round3Button.addEventListener("click", function () {
   round3();
   countdown();
 });
-
 //congrats word when finished game
 //do random equations and source for answer when answer is typed, not to calculate everything in advance
 //aesthetics - background, font type etc
