@@ -11,52 +11,55 @@ round2Button.style.display = "none";
 round3Button = document.getElementById("round3-button");
 round3Button.style.display = "none";
 
+const victory = document.getElementById("victory");
+victory.style.display = "none";
+
 //ROUND 1
 const listOfWords = [
-  // "jumbled",
-  // "simplistic",
-  // "spill",
-  // "concerned",
-  // "reason",
-  // "halting",
-  // "harm",
-  // "silky",
-  // "beautiful",
-  // "abaft",
-  // "structure",
-  // "physical",
-  // "courageous",
-  // "petite",
-  // "friendly",
-  // "spade",
-  // "millennial",
-  // "heart",
-  // "constant",
-  // "function",
-  // "loving",
-  // "expansion",
-  // "abundant",
-  // "encouraging",
-  // "flowers",
-  // "command",
-  // "appliance",
-  // "middle",
-  // "available",
-  // "sudden",
-  // "slip",
-  // "arrogant",
-  // "aquatic",
-  // "drum",
-  // "shocking",
-  // "boot",
-  // "tease",
-  // "zip",
-  // "number",
-  // "ambitious",
-  // "attract",
-  // "thought",
-  // "spotty",
-  // "reflect",
+  "jumbled",
+  "simplistic",
+  "spill",
+  "concerned",
+  "reason",
+  "halting",
+  "harm",
+  "silky",
+  "beautiful",
+  "abaft",
+  "structure",
+  "physical",
+  "courageous",
+  "petite",
+  "friendly",
+  "spade",
+  "millennial",
+  "heart",
+  "constant",
+  "function",
+  "loving",
+  "expansion",
+  "abundant",
+  "encouraging",
+  "flowers",
+  "command",
+  "appliance",
+  "middle",
+  "available",
+  "sudden",
+  "slip",
+  "arrogant",
+  "aquatic",
+  "drum",
+  "shocking",
+  "boot",
+  "tease",
+  "zip",
+  "number",
+  "ambitious",
+  "attract",
+  "thought",
+  "spotty",
+  "reflect",
 ];
 
 //pick out a random and unique word from the list of words
@@ -100,7 +103,7 @@ const colors = [
   "red",
   "yellow",
   "brown",
-  "black",
+  "white",
   "green",
   "grey",
   "purple",
@@ -200,17 +203,23 @@ function checkAllTyped() {
     return x == "";
   }
 
+  console.log(typeof listOfWords[0]);
+  console.log(typeof colors[0]);
+
   //put above function into "every" iterator to check that EVERY element box is empty
   if (elArr.every(checkEl) && round === 1) {
     round2Button.style.display = "block";
     startButton.style.display = "none";
+    console.log("round 1 done");
   } else if (elArr.every(checkEl) && round === 2) {
     round2Button.style.display = "none";
     round3Button.style.display = "block";
     startButton.style.display = "none";
-    // } else if (elArr.every(checkEl) && round === 3) {
-    //   timerText.innerText = "You won!";
-    //   timerText.style.color = "green";
+    console.log("round 2 done");
+  } else if (elArr.every(checkEl) && round === 3) {
+    timerText.style.display = "none";
+    victory.style.display = "block";
+    console.log("round 3 done");
   }
 }
 
@@ -225,6 +234,7 @@ playerInput.addEventListener("keypress", function (e) {
       checkAllTyped();
     } else if (round === 3) {
       checkColor();
+      checkAllTyped();
     }
     playerInput.value = ""; //clears input field after enter button pressed
   }
@@ -235,7 +245,7 @@ let timerNumber = document.getElementById("timer-number");
 const timer = document.querySelector("timer");
 
 //countdown timer
-let timeLeft = 5;
+let timeLeft = 90;
 const timerText = document.getElementById("timer-fulltext");
 
 function countdown() {
