@@ -284,8 +284,6 @@ round3Button.addEventListener("click", function () {
   round3Button.style.display = "none";
 });
 
-//congrats word when finished game
 //do random equations and source for answer when answer is typed, not to calculate everything in advance
-//game over if not all words typed
 //source words from word generator. https://www.section.io/engineering-education/how-to-build-a-speedtyping-game-using-javascript/
 //use map to create array of answers of eqn. findindex, splice.

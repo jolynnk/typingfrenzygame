@@ -15,7 +15,7 @@ body {
   margin-right: auto;
   position: fixed;
   top: 10px;
-  left: 580px;
+  left: 595px;
   width: 250px;
 }
 
@@ -24,8 +24,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   position: fixed;
-  bottom: -110px;
-  left: 378px;
+  bottom: -105px;
+  left: 410px;
   width: 620px;
 }
 
@@ -35,7 +35,7 @@ body {
   color: rgb(146, 62, 223);
   position: fixed;
   top: 190px;
-  left: 1060px;
+  left: 1090px;
 }
 
 #score-number {
@@ -47,7 +47,7 @@ body {
   font-size: 25px;
   color: rgb(242, 177, 24);
   position: fixed;
-  left: 230px;
+  left: 250px;
   top: 190px;
 }
 
@@ -59,7 +59,7 @@ body {
   text-align: center;
   position: fixed;
   top: 130px;
-  left: 553px;
+  left: 580px;
   font-family: Agdasima;
   color: rgb(126, 234, 251);
   font-size: 20px;
@@ -79,7 +79,7 @@ body {
 #playerInput {
   position: fixed;
   top: 430px;
-  left: 595px;
+  left: 622px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -90,7 +90,7 @@ body {
 #start-button {
   position: fixed;
   top: 495px;
-  left: 642px;
+  left: 667px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -100,7 +100,7 @@ body {
 #round2-button {
   position: fixed;
   top: 495px;
-  left: 641px;
+  left: 667px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -110,7 +110,7 @@ body {
 #round3-button {
   position: fixed;
   top: 495px;
-  left: 641px;
+  left: 667px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -124,7 +124,7 @@ body {
   justify-content: center;
   position: fixed;
   top: 170px;
-  left: 370px;
+  left: 395px;
   margin: auto;
   width: 45%;
 }
