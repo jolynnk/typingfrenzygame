@@ -76,6 +76,7 @@ function round1() {
 }
 
 //ROUND 2
+//generate random equation
 function getRandomEquation() {
   const operators = ["+", "-", "*"];
   let randomOperator = operators[Math.floor(Math.random() * operators.length)];
@@ -152,6 +153,21 @@ function checkNumber() {
   }
 }
 
+// function checkSolved(x) {
+//   if (playerInput.value == eval(x.innerText)) {
+//     x.innerText = "";
+//   }
+// }
+
+// function checkNumber() {
+//   elArr = [];
+//   for (const el of elementArray) {
+//     elArr.push(el.innerText); //puts all elements into proper array (was considered node list before)
+//   }
+
+//   elArr.find(checkSolved);
+// }
+
 //check color accuracy
 function checkColor() {
   for (const displayedColor of elementArray) {
@@ -162,7 +178,6 @@ function checkColor() {
     }
   }
 }
-// console.log(elementArray[0].innerText);
 
 //check if all elements are typed and board is clear
 function checkAllTyped() {
@@ -251,3 +266,4 @@ round3Button.addEventListener("click", function () {
 //do random equations and source for answer when answer is typed, not to calculate everything in advance
 //game over if not all words typed
 //source words from word generator. https://www.section.io/engineering-education/how-to-build-a-speedtyping-game-using-javascript/
+//use map to create array of answers of eqn. findindex, splice.
