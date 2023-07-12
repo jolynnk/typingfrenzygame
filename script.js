@@ -1,6 +1,6 @@
 const playerInput = document.getElementById("playerInput");
 
-//places all elements into an array
+//places all elements into a node list to be iterated through when checking against player input
 const elementArray = document.querySelectorAll(".element");
 
 let round = 1; //refers to words game by default
@@ -13,7 +13,7 @@ round3Button.style.display = "none";
 
 //ROUND 1
 const listOfWords = [
-  "jumbled",
+  // "jumbled",
   // "simplistic",
   // "spill",
   // "concerned",
@@ -112,6 +112,7 @@ const colors = [
   "darkorange",
 ];
 
+//get random colour
 function getRandomColor() {
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   const randomColorIdx = colors.indexOf(randomColor);
@@ -119,6 +120,7 @@ function getRandomColor() {
   return randomColor;
 }
 
+//populate boxes with random colour
 function round3() {
   for (let i = 0; i < elementArray.length; i++) {
     elementArray[i].innerText = "Color";
@@ -152,6 +154,13 @@ function checkNumber() {
     }
   }
 }
+
+// function chicken() {
+//   let array = [];
+//   array.push(eval(getRandomEquation));
+//   return array;
+// }
+// console.log(chicken());
 
 // function checkSolved(x) {
 //   if (playerInput.value == eval(x.innerText)) {
@@ -199,6 +208,9 @@ function checkAllTyped() {
     round2Button.style.display = "none";
     round3Button.style.display = "block";
     startButton.style.display = "none";
+    // } else if (elArr.every(checkEl) && round === 3) {
+    //   timerText.innerText = "You won!";
+    //   timerText.style.color = "green";
   }
 }
 
@@ -222,17 +234,17 @@ const startButton = document.getElementById("start-button");
 let timerNumber = document.getElementById("timer-number");
 const timer = document.querySelector("timer");
 
-//create 30s countdown timer
-let timeLeft = 80;
+//countdown timer
+let timeLeft = 5;
 const timerText = document.getElementById("timer-fulltext");
 
 function countdown() {
   const timerId = setTimeout(countdown, 1000);
   timerNumber.innerText = timeLeft;
-  if (timeLeft > 0 && timeLeft < 81) {
+  if (timeLeft > 0) {
     timeLeft--;
   } else if (timeLeft === 0) {
-    // timerText.innerText = "TIME'S UP!";
+    timerText.innerText = "TIME'S UP!";
     timerText.style.color = "red";
     playerInput.style.display = "none";
     startButton.style.display = "none";
@@ -243,20 +255,20 @@ function countdown() {
 
 //activate countdown timer on "start game" button click
 startButton.addEventListener("click", function () {
-  round1();
-  countdown();
+  round1(); //boxes to be populated with words
+  countdown(); //countdown begins
 });
 
 //start round 2 when button clicked
 round2Button.addEventListener("click", function () {
   round = 2;
-  round2();
+  round2(); //boxes to be populated with eqns
 });
 
 //start round 3 when button clicked
 round3Button.addEventListener("click", function () {
   round = 3;
-  round3();
+  round3(); //boxes to be populated with colours
   startButton.style.display = "none";
   round2Button.style.display = "none";
   round3Button.style.display = "none";
