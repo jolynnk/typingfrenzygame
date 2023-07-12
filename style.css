@@ -24,9 +24,9 @@ body {
   margin-left: auto;
   margin-right: auto;
   position: fixed;
-  bottom: -100px;
-  left: 375px;
-  width: 640px;
+  bottom: -110px;
+  left: 378px;
+  width: 620px;
 }
 
 .score {
@@ -35,7 +35,7 @@ body {
   color: rgb(146, 62, 223);
   position: fixed;
   top: 215px;
-  right: 287px;
+  left: 1060px;
 }
 
 #score-number {
@@ -78,8 +78,8 @@ body {
 
 #start-button {
   position: fixed;
-  top: 485px;
-  left: 656px;
+  top: 495px;
+  left: 642px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -88,8 +88,8 @@ body {
 
 #round2-button {
   position: fixed;
-  top: 485px;
-  left: 647px;
+  top: 495px;
+  left: 641px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -98,8 +98,8 @@ body {
 
 #round3-button {
   position: fixed;
-  top: 485px;
-  left: 647px;
+  top: 495px;
+  left: 641px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -127,5 +127,5 @@ body {
   text-align: center;
   height: 60px;
   position: relative;
-  padding: 20px;
+  padding: 16px;
 }

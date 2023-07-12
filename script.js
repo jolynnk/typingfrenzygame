@@ -185,14 +185,14 @@ function checkColor() {
 }
 // console.log(elementArray[0].innerText);
 
-//check if all elements are typed
+//check if all elements are typed and board is clear
 function checkAllTyped() {
   elArr = [];
   for (const el of elementArray) {
     elArr.push(el.innerText); //puts all elements into proper array (was considered node list before)
   }
 
-  //to check if element box is empty. no need ".innertext" as checking array element directly
+  //to check if element box is empty. no need ".innertext" as checking array element directly via "every" which is an array iterator
   function checkEl(x) {
     return x == "";
   }
@@ -200,14 +200,13 @@ function checkAllTyped() {
   //put above function into "every" iterator to check that EVERY element box is empty
   if (elArr.every(checkEl) && round === 1) {
     round2Button.style.display = "block";
-    // startButton.style.display = "none";
+    startButton.style.display = "none";
   } else if (elArr.every(checkEl) && round === 2) {
     round2Button.style.display = "none";
     round3Button.style.display = "block";
+    startButton.style.display = "none";
   }
 }
-
-// console.log(elementArray.every(checkAllTyped));
 
 //to accept player input when enter button pressed. source: https://blog.devgenius.io/how-to-detect-the-pressing-of-the-enter-key-in-a-text-input-field-with-javascript-380fb2be2b9e
 playerInput.addEventListener("keypress", function (e) {
@@ -230,13 +229,13 @@ let timerNumber = document.getElementById("timer-number");
 const timer = document.querySelector("timer");
 
 //create 30s countdown timer
-let timeLeft = 90;
+let timeLeft = 80;
 const timerText = document.getElementById("timer-fulltext");
 
 function countdown() {
   const timerId = setTimeout(countdown, 1000);
   timerNumber.innerText = timeLeft;
-  if (timeLeft > 0 && timeLeft < 91) {
+  if (timeLeft > 0 && timeLeft < 81) {
     timeLeft--;
   } else if (timeLeft === 0) {
     // timerText.innerText = "TIME'S UP!";
@@ -271,6 +270,5 @@ round3Button.addEventListener("click", function () {
 
 //congrats word when finished game
 //do random equations and source for answer when answer is typed, not to calculate everything in advance
-//aesthetics - background, font type etc
 //game over if not all words typed
 //source words from word generator. https://www.section.io/engineering-education/how-to-build-a-speedtyping-game-using-javascript/

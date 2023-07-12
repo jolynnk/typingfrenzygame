@@ -10,16 +10,21 @@
       href="https://fonts.googleapis.com/css2?family=Agdasima&family=Caprasimo&family=Poiret+One&family=Redacted&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <img src="typingfrenzy_gametitle2.png" id="game-title" />
-    <!-- <div class="game-title">TYPING FRENZY</div> -->
     <div class="score" id="score-fulltext">
       Score: <br /><span id="score-number">0</span>
     </div>
     <div class="timer" id="timer-fulltext">
-      Timer: <br /><span id="timer-number">90</span> <br />seconds
+      Timer: <br /><span id="timer-number">80</span> <br />seconds
     </div>
     <div class="instructions">
       <em>Clear all the boxes before the time runs out!</em>
@@ -43,7 +48,9 @@
       <div class="element element-16"></div>
     </div>
 
-    <button id="start-button">Start Game</button>
+    <button type="button" class="btn btn-secondary" id="start-button">
+      START GAME
+    </button>
 
     <input
       type="text"
@@ -52,9 +59,16 @@
       style="width: 200px"
     />
 
-    <button id="round2-button">Go to Round 2</button>
-    <button id="round3-button">Go to Round 3</button>
+    <button type="button" class="btn btn-outline-info" id="round2-button">
+      Go to Round 2
+    </button>
+
+    <button type="button" class="btn btn-outline-info" id="round3-button">
+      Go to Round 3
+    </button>
+
     <img src="typingfrenzy_keyboard2.png" id="keyboard" />
+
     <script src="script.js"></script>
   </body>
 </html>
