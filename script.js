@@ -76,39 +76,18 @@ function round1() {
 }
 
 //ROUND 2
-const listOfEquations = [
-  "5 * 7",
-  "40 / 8",
-  "37 * 2",
-  "1 + 2",
-  "3 + 8",
-  "4 + 5",
-  "2 * 6",
-  "14 * 3",
-  "20 / 2",
-  "7 * 7",
-  "8 * 8",
-  "10 * 10",
-  "68 - 30",
-  "3 + 7",
-  "12 - 4",
-  "30 / 10",
-];
-
-//pick out random equation from list of equations
 function getRandomEquation() {
-  const randomEqn =
-    listOfEquations[Math.floor(Math.random() * listOfEquations.length)];
-  const randomEqnIdx = listOfEquations.indexOf(randomEqn);
-  listOfEquations.splice(randomEqnIdx, 1); //removes the equation that has been picked out from the array so that it won't repeat
-  return randomEqn;
+  const operators = ["+", "-", "*"];
+  let randomOperator = operators[Math.floor(Math.random() * operators.length)];
+  let randomValue1 = Math.floor(Math.random() * 12);
+  let randomValue2 = Math.floor(Math.random() * 10);
+  return `${randomValue1}${randomOperator}${randomValue2}`;
 }
 
 //populate boxes with random equations
 function round2() {
   for (let i = 0; i < elementArray.length; i++) {
     elementArray[i].innerText = getRandomEquation();
-    // elementArray[i].style.color = "blue";
   }
 }
 
