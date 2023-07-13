@@ -160,10 +160,12 @@ function checkNumber() {
 //check colour accuracy and increases score
 function checkColor() {
   for (const displayedColor of elementArray) {
+    console.log(elementArray);
     if (playerInput.value == displayedColor.style.color) {
-      displayedColor.innerText = "";
+      displayedColor.innerText = ""; //word disappears from div
       currentScore += 3;
       score.innerText = currentScore;
+      displayedColor.style.color = ""; //color removed from element so no duplicated score
     }
   }
 }
@@ -216,7 +218,7 @@ playerInput.addEventListener("keypress", function (e) {
 let timerNumber = document.getElementById("timer-number");
 const timer = document.querySelector("timer");
 const timerText = document.getElementById("timer-fulltext");
-let timeLeft = 90;
+let timeLeft = 60;
 
 function countdown() {
   const timerId = setTimeout(countdown, 1000);
@@ -237,12 +239,14 @@ function countdown() {
 startButton.addEventListener("click", function () {
   round1(); //boxes to be populated with words
   countdown(); //countdown begins
+  startButton.style.display = "none";
 });
 
 //start round 2 when button clicked
 round2Button.addEventListener("click", function () {
   round = 2;
   round2(); //boxes to be populated with eqns
+  round2Button.style.display = "none";
 });
 
 //start round 3 when button clicked
