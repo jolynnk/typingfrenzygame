@@ -69,7 +69,7 @@ body {
   text-align: center;
   position: fixed;
   top: 210px;
-  left: 553px;
+  left: 580px;
   font-family: Agdasima;
   font-size: 100px;
   color: gold;
@@ -137,6 +137,5 @@ body {
   color: white;
   text-align: center;
   height: 60px;
-  position: relative;
   padding: 16px;
 }
